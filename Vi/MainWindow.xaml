@@ -1,0 +1,91 @@
+﻿<Window x:Class="Task.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Vi (Пародия на старый консольный редактор)"
+        Height="590.999"
+        Width="558.82"
+        ResizeMode="NoResize"
+        x:Name="Vi"
+        PreviewTextInput="Vi_PreviewTextInput">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Menu Grid.Row="0"
+              Grid.Column="0"
+              FontFamily="Consolas">
+            <MenuItem Header="_Создать"
+                      x:Name="menuItem_Create"
+                      Click="MenuItem_Create_Click"
+                      IsTabStop="False"
+                      Height="22"/>
+            <MenuItem Header="_Открыть"
+                      x:Name="menuItem_Open"
+                      IsTabStop="False"
+                      Click="MenuItem_Open_Click"/>
+            <MenuItem Header="_Сохранить"
+                      x:Name="menuItem_Save"
+                      IsTabStop="False"
+                      Click="MenuItem_Save_Click"
+                      IsEnabled="False"/>
+        </Menu>
+        <RichTextBox Grid.Row="1"
+                     Grid.Column="0"
+                     x:Name="PhysicalScreen"
+                     FontFamily="Consolas"
+                     FontSize="12"
+                     IsTabStop="False"
+                     Block.LineHeight="3.5"
+                     IsReadOnly="True"/>
+        <Label Grid.Row="2"
+               Grid.Column="0"
+               x:Name="Mode"
+               FontFamily="Consolas"
+               FontSize="10"
+               Content="{Binding StatusBar, ElementName=Vi}"
+               VerticalContentAlignment="Center"/>
+        <Label Grid.Row="3"
+               Grid.Column="0"
+               FontFamily="Consolas"
+               FontSize="10"
+               VerticalContentAlignment="Center">
+            Перемещение: h-j-k-l (влево-вниз-вверх-вправо).
+        </Label>
+        <Label Grid.Row="4"
+               Grid.Column="0"
+               FontFamily="Consolas"
+               FontSize="10"
+               VerticalContentAlignment="Center">
+            Режим вставки: i-a ('a' (append) вначале сдвигает курсор вправо).
+        </Label>
+        <Label Grid.Row="5"
+               Grid.Column="0"
+               FontFamily="Consolas"
+               FontSize="10"
+               VerticalContentAlignment="Center">
+            I - вставка с начало строки. A - вставка в конец строки.
+        </Label>
+        <Label Grid.Row="6"
+               Grid.Column="0"
+               FontFamily="Consolas"
+               FontSize="10"
+               VerticalContentAlignment="Center">
+            Выход из режима вставки: &lt;Esc&gt;.
+            Остальное см. в разделе "Помощь".
+        </Label>
+    </Grid>
+</Window>
+
